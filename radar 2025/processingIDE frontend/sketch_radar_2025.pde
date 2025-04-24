@@ -1,9 +1,13 @@
 import processing.serial.*; // imports library for serial communication
+import processing.sound.*;
 import java.awt.event.KeyEvent; // imports library for reading the data from the serial port
 import java.io.IOException;
 
 // defines Object Serial
+// defines Serial Object
 Serial myPort;
+// defines SoundFile
+SoundFile beep;
 
 // define variables
 String angle, distance, data, noObject;
@@ -17,8 +21,11 @@ void setup() {
   size (1200, 700); // ***CHANGE THIS TO YOUR SCREEN RESOLUTION***
   // size (1920, 1080);
   smooth();
-  myPort = new Serial(this,"COM3", 9600); // starts the serial communication
+  myPort = new Serial(this, "COM3", 9600); // starts the serial communication
   myPort.bufferUntil('.'); // reads the data from the serial port up to the character '.'. So actually it reads this: angle,distance.
+
+  beep = new SoundFile(this, "./beep-01a.wav");
+  beep.play();
 }
 
 void draw() {
