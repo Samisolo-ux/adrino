@@ -24,7 +24,7 @@ void setup() {
   myPort = new Serial(this, "COM3", 9600); // starts the serial communication
   myPort.bufferUntil('.'); // reads the data from the serial port up to the character '.'. So actually it reads this: angle,distance.
 
-  beep = new SoundFile(this, "./beep-01a.wav");
+  beep = new SoundFile(this, "./assests/beep-01a.wav");
   beep.play();
 }
 
